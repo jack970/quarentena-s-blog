@@ -1,11 +1,44 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Mclovin's Blog`,
+    description: `Blog voltado para adoração ao DeusLovin.`,
+    author: `Jack970`,
+    menuFooter: [
+      `Videos`,
+      `Imagens`,
+      `Notícias`,
+      `Áudios`
+    ],
+    informacoesFooter: [
+      {
+        label:'Facebook',
+        icon: 'facebook-f'
+      },
+      {
+        label:'Endereço',
+        icon: 'map-marker-alt'
+      },
+      {
+        label:'Twitter',
+        icon: 'twitter'
+      },
+      {
+        label:'Email',
+        icon: 'envelope'
+      }
+    ]
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `Posts`,
+        path: `${__dirname}/Posts`,
+      },
+    },
+    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
