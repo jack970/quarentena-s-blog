@@ -1,77 +1,92 @@
-import React from "react";
-import { MDBCol, MDBContainer, MDBRow, MDBFooter, MDBIcon} from "mdbreact";
+import React from "react"
 import formatDate from '../../utils/formatDate'
-import { useStaticQuery, graphql } from "gatsby";
-
+import { graphql, useStaticQuery } from 'gatsby'
+import { MDBBtn, MDBIcon } from 'mdbreact'
 const MenuFooter = () => {
 
     const data = useStaticQuery(graphql`
-        query SiteDescriptionQuery {
+        query {
             site {
                 siteMetadata {
-                    author
                     description
-                    menuFooter
-                    informacoesFooter {
-                        label
+                    author
+                    socialLinks {
+                        link
                         icon
-                      }
+                        color
+                    }
+                    menuFooter {
+                        label
+                        link
+                    }
                 }
             }
         }
+    
     `)
-
-    const style={
-        marginBottom: '2rem',
-    }
-    const categorias = data.site.siteMetadata.menuFooter
-    const informacoes = data.site.siteMetadata.informacoesFooter
-
     return (
-    <MDBFooter color="#bdbdbd grey lighten-1" className="font-small pt-4 mt-4">
-        <MDBContainer fluid className="text-center text-md-left">
-        <MDBRow style={{ margin: '0 auto', maxWidth: '62rem'}}>
-            <MDBCol className="col-sm-4 col-md-4" >
-            <h5 className="spacing font-weight-bold">Descrição</h5>
-                <hr className="info-color mt-3 d-inline-block mx-auto" style={{width: '4rem'}} />
-                <p>{data.site.siteMetadata.description}</p>
-            </MDBCol>
-            <MDBCol className="col-sm-4 col-md-4 text-center" style={style}>
-            <h5 className="spacing font-weight-bold">Localização</h5>
-            <ul>
-            <hr className="info-color mb-4 mt-0 d-inline-block mx-auto" style={{width: '4rem'}} />
-                {informacoes.map((info, i) => (
-                    <li className="list-unstyled" key={i}>
-                        <span className="input-group-text">
-                            <MDBIcon far icon={info.icon} />
-                            <p>{info.label}</p>
-                        </span>
-                    </li>
-                ))}                
-            </ul>
-            </MDBCol>
-            <MDBCol className="col-sm-4 col-md-4 text-center" style={style}>
-            <h5 className="spacing font-weight-bold">Categorias</h5>
-            <ul>
-                <hr className="info-color mb-4 mt-0 d-inline-block mx-auto" style={{width: '4rem'}} />
-                {categorias.map((labels, i) => (
-                    <li className="list-unstyled" key={i}>
-                        <a href="#!">{labels}</a>
-                    </li>
-                ))}
-            </ul>
-            </MDBCol>
-        </MDBRow>
-        </MDBContainer>
-        <div className="footer-copyright text-center py-3">
-        <MDBContainer fluid>
-            {formatDate(Date())} <br></br> 
-            &copy; Desenvolvido com <a href="https://www.gatsbyjs.com"> Gatsby </a>
-            {` `} | By {data.site.siteMetadata.author}
-        </MDBContainer>
-        </div>
-    </MDBFooter>
+
+<footer className="page-footer font-small stylish-color-dark pt-4">
+
+
+<div className="container text-center text-md-left">
+
+
+  <div className="row">
+
+
+    <div className="col-md-4 mx-auto">
+
+
+      <h5 className="font-weight-bold text-uppercase mt-3 mb-4">Descrição</h5>
+      <p>{data.site.siteMetadata.description}</p>
+
+    </div>
+
+    <hr className="clearfix w-100 d-md-none" />
+
+
+    <div className="col-md-2 mx-auto">
+
+
+      <h5 className="font-weight-bold text-uppercase mt-3 mb-4">Tags</h5>
+
+      <ul className="list-unstyled">
+          {data.site.siteMetadata.menuFooter.map((tag, i) => (
+            <li key={i}>
+              <a href={tag.link}>{tag.label}</a>
+            </li>
+          ))}
+        
+      </ul>
+
+    </div>
+
+
+  </div>
+
+
+</div>
+
+<hr/>
+
+<ul className="list-unstyled list-inline text-center">
+    {data.site.siteMetadata.socialLinks.map((icons, i) => (
+        <li className="list-inline-item" key={i}>
+          <MDBBtn rounded color={icons.color} style={{borderRadius: '50%', padding: '.7rem 1rem .7rem'}}>
+              <MDBIcon size='2x' fab icon={icons.icon} />
+          </MDBBtn>
+        </li>
+    ))}
+</ul>
+<div className="footer-copyright text-center py-3">{formatDate(Date())} <br />
+    Desenvolvedor: {data.site.siteMetadata.author} {` | `} Desenvolvido com <a href="https://www.gatsbyjs.org/"> Gatsby</a>
+</div>
+
+
+</footer>
+
   );
 }
 
-export default MenuFooter;
+export default MenuFooter

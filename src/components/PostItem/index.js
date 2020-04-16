@@ -27,7 +27,7 @@ const PostItem = ({ image, title, description, date, author, link}) => {
               by <a href="#!" className="font-weight-bold">{author}</a>, {date}
             </p>
             <a href={link} >
-              <MDBBtn className="btn btn-info btn-rounded btn-md waves-effect waves-light" size="md">
+              <MDBBtn className="btn btn-blue btn-rounded btn-md waves-effect waves-light" size="md">
                 Ler Mais
               </MDBBtn>
             </a>

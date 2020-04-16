@@ -19,13 +19,13 @@ const CarouselPhrases = ( { frase, image }) => {
             <div className="row">
                 <div className="col-lg-6 mx-auto">
                     <header className="text-center pb-5">
-                        <h1 className="h2">Como disse nosso senhor:</h1>
+                        <h1 className="h2">Secção de Frases</h1>
                     </header>
                 </div>
             </div>
             <div className="row">
                 <div className="col-lg-6 mx-auto">
-                    <blockquote className="blockquote blockquote-custom bg-white p-5 shadow rounded">
+                    <blockquote className="blockquote bg-white p-5 shadow rounded" style={{borderLeft: '0'}}>
                         <div style={styleBlockQuoteIcon} className="blockquote-custom-icon bg-info shadow-sm"><i className="fa fa-quote-left text-white"></i></div>
                         <div className="col-sm-3 text-center">
                             <img className="rounded-circle" src={image} alt="Mclovin" style={{ width: '100px', height: '100px'}}/>

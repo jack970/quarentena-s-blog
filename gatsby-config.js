@@ -1,32 +1,48 @@
 module.exports = {
   siteMetadata: {
-    title: `Mclovin's Blog`,
-    description: `Blog voltado para adoração ao DeusLovin.`,
+    title: `Quarentena's Blog`,
+    description: `Descrição do Blog`,
     author: `Jack970`,
     menuFooter: [
-      `Videos`,
-      `Imagens`,
-      `Notícias`,
-      `Áudios`
-    ],
-    informacoesFooter: [
       {
-        label:'Facebook',
-        icon: 'facebook-f'
+        label: 'Sobre',
+        link: '/sobre'
       },
       {
-        label:'Endereço',
-        icon: 'map-marker-alt'
+        label: 'Imagens',
+        link: '/tags/imagens'
       },
       {
-        label:'Twitter',
-        icon: 'twitter'
+        label: 'Notícias',
+        link: '/tags/noticias'
       },
       {
-        label:'Email',
-        icon: 'envelope'
+        label: 'Áudios',
+        link: '/tags/audios'
       }
-    ]
+    ],
+    socialLinks: [
+      {
+        link: 'https://www.facebook.com',
+        icon: 'facebook-f',
+        color: 'blue'
+      },
+      {
+        link: 'https://www.twitter.com',
+        icon: 'twitter',
+        color: 'cyan'
+      },
+      {
+        link: 'https://www.google.com',
+        icon: 'google-plus-g',
+        color: 'red'
+      },
+      {
+        link: 'https://www.linkedin.com',
+        icon: 'linkedin-in',
+        color: 'blue'
+      },
+    ],
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

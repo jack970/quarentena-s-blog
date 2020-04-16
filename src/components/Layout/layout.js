@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import Headers from "../Header"
+import Headers from "../HeaderparaLayout"
 import GlobalStyles from "../../Styles/global"
 import MenuFooter from "../MenuFooter"
 

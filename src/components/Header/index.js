@@ -11,10 +11,9 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  NavbarText
 } from 'reactstrap';
 import { useStaticQuery, graphql } from 'gatsby';
-
+import CarouselPage from '../Carousel'
 const Headers = () => {
   const data = useStaticQuery(graphql`
     query TitleQuery {
@@ -33,8 +32,8 @@ const Headers = () => {
 
   return (
     <div>
-      <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">{data.site.siteMetadata.title}</NavbarBrand>
+      <Navbar color="dark" dark expand="md">
+        <NavbarBrand href="/"><strong className='white-text'>{data.site.siteMetadata.title}</strong></NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar style={{marginBlockStart: '0'}}>
@@ -62,9 +61,10 @@ const Headers = () => {
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
-          <NavbarText>Simple Text</NavbarText>
+          <NavLink href='/noticias'>Simple Text</NavLink>
         </Collapse>
       </Navbar>
+      <CarouselPage />
     </div>
   )
 }

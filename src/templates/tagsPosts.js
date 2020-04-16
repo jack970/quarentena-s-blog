@@ -20,7 +20,7 @@ const Tags = ({ data, pageContext }) => {
                     Tag: { tag }
                 </h2>
                 <p className="text-center w-responsive mx-auto mb-5">
-                    Posts de Nosso Louvado Mclovin.
+                    Descrição do Post
                 </p>
                     { postList.map(({node}, i) =>(
                         <PostItem key = {i}
