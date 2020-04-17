@@ -17,14 +17,14 @@ const Tags = ({ data, pageContext }) => {
             <MDBCard>
                 <MDBCardBody>
                 <h2 className="h1-responsive font-weight-bold text-center my-5">
-                    Tag: { tag }
+                    { tag }
                 </h2>
                 <p className="text-center w-responsive mx-auto mb-5">
                     Descrição do Post
                 </p>
                     { postList.map(({node}, i) =>(
                         <PostItem key = {i}
-                            image={node.frontmatter.thumbnail}
+                            image={node.frontmatter.image.childImageSharp.fluid}
                             title={node.frontmatter.title}
                             description={node.frontmatter.description}
                             date={node.frontmatter.date}
@@ -46,10 +46,17 @@ export const query = graphql`
                 node {
                     frontmatter {
                         title
-                        thumbnail
+                        image {
+                            childImageSharp {
+                              fluid(maxWidth: 960) {
+                                ...GatsbyImageSharpFluid
+                              }
+                            }
+                          }
                         description
                         date
                         tags
+                        author
                     }
                     fields {
                         slug

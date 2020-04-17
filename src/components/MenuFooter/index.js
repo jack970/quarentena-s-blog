@@ -49,7 +49,7 @@ const MenuFooter = () => {
     <div className="col-md-2 mx-auto">
 
 
-      <h5 className="font-weight-bold text-uppercase mt-3 mb-4">Tags</h5>
+      <h5 className="font-weight-bold text-uppercase mt-3 mb-4">Categorias</h5>
 
       <ul className="list-unstyled">
           {data.site.siteMetadata.menuFooter.map((tag, i) => (
@@ -73,11 +73,11 @@ const MenuFooter = () => {
 <ul className="list-unstyled list-inline text-center">
     {data.site.siteMetadata.socialLinks.map((icons, i) => (
         <li className="list-inline-item" key={i}>
-          <MDBBtn rounded color={icons.color} style={{borderRadius: '50%', padding: '.7rem 1rem .7rem'}}>
-            <a href={icons.link}>
-              <MDBIcon size='2x' fab icon={icons.icon} />
-            </a>
-          </MDBBtn>
+          <a href={icons.link}>
+            <MDBBtn rounded color={icons.color} style={{borderRadius: '50%', padding: '.7rem 1rem .7rem'}}>
+                <MDBIcon size='2x' fab icon={icons.icon} />
+            </MDBBtn>
+          </a>
         </li>
     ))}
 </ul>

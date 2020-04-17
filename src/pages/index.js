@@ -8,8 +8,8 @@ import Headers from '../components/Header'
 import {MDBCard, MDBCardBody} from 'mdbreact'
 import MenuFooter from "../components/MenuFooter"
 
-const IndexPage = props => {
-  const postList = props.data.allMarkdownRemark.edges
+const IndexPage = ({data}) => {
+  const postList = data.allMarkdownRemark.edges
   return(
     <section style={{backgroundColor: '#ededed'}}>
     <Headers />
@@ -34,7 +34,7 @@ const IndexPage = props => {
             </p>
             { postList.map(({node}, i) =>(
               <PostItem key = {i}
-                image={node.frontmatter.thumbnail}
+                image={node.frontmatter.image.childImageSharp.fluid}
                 title={node.frontmatter.title}
                 description={node.frontmatter.description}
                 date={node.frontmatter.date}
@@ -59,7 +59,13 @@ export const PostListQuery = graphql`
       edges {
         node {
           frontmatter {
-            thumbnail
+            image {
+              childImageSharp {
+                fluid(maxWidth: 960) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
             author
             date(locale:"pt-br" ,formatString: "DD [de] MMMM [de] YYYY")
             description

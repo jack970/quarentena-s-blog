@@ -1,15 +1,15 @@
 ---
 title: Primeiro Post
 description: Descrição do Post
-date: "2020-10-10"
+date: "2020-04-10"
 author: Jack970
-thumbnail: "https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg"
+image: /assets/img/logo-1.jpeg
 tags: [ 'Notícias', 'Mclovin']
 ---
 
 # Primeiro 
 
-!["Qualquer"](https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg)
+!["Qualquer"](/assets/img/logo-2.jpeg)
 
 Lorem Ipsulum Lorem Ipsulum Lorem Ipsulum Lorem Ipsulum Lorem Ipsulum 
 Lorem Ipsulum Lorem Ipsulum Lorem Ipsulum 

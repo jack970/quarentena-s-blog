@@ -37,7 +37,7 @@ const Headers = () => {
               <NavLink href="/tags/noticias/">Notícias</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/tags">Tags</NavLink>
+              <NavLink href="/tags">Categorias</NavLink>
             </NavItem>
           </Nav>
           <NavbarText>

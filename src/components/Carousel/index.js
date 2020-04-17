@@ -8,7 +8,8 @@ import {
   MDBMask, 
   MDBContainer 
 } from "mdbreact";
-import { useStaticQuery, graphql, Link } from "gatsby";
+import { useStaticQuery, graphql, Link } from "gatsby"
+import Img from 'gatsby-image'
 
 const CarouselPage = () => {
     const data = useStaticQuery(graphql`
@@ -17,7 +18,13 @@ const CarouselPage = () => {
         edges {
           node {
             frontmatter {
-              thumbnail
+              image {
+                childImageSharp {
+                  fluid(maxWidth: 1080) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
               author
               date(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
               description
@@ -46,10 +53,12 @@ const CarouselPage = () => {
           <MDBCarouselItem itemId={i + 1} key={i}>
             <Link to={node.fields.slug}>
               <MDBView style={{cursor: 'pointer'}}>
-                <img
+                <Img
                   className="d-block w-100"
-                  src={node.frontmatter.thumbnail}
+                  fluid={node.frontmatter.image.childImageSharp.fluid}
                   alt={node.frontmatter.title}
+
+                  style={{height: '30rem'}}
                 />
               <MDBMask overlay="black-light" />
               </MDBView>
