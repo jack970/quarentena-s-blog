@@ -3,7 +3,7 @@ import Layout from '../components/Layout/layout'
 import SEO from '../components/seo'
 import { graphql, Link } from 'gatsby'
 import kebabCase from "lodash/kebabCase"
-import { MDBBadge, MDBContainer } from "mdbreact"
+import { MDBBadge } from "mdbreact"
 
 const TagsPage = ({ data }) => {
     const tags = data.allMarkdownRemark.group
@@ -23,19 +23,18 @@ const TagsPage = ({ data }) => {
     return(
         <Layout>
             <SEO title="Todas as Tags"/>
-            <ul>
+            <ul className='list-unstyled list-inline text-center'>
                 {tags.map((tag, i) => {
                     const randomNumber = Math.floor(Math.random() * (cores.length))
-                    console.log(randomNumber)
                     return(
-                    <Link key={i} to={`/tags/${kebabCase(tag.fieldValue)}`}>
-                        <MDBContainer className= 'p-2'>
-                            <MDBBadge className='p-2' pill color={cores[randomNumber]}>
-                                {tag.fieldValue} {tag.totalCount}
-                            </MDBBadge>
-                        </MDBContainer>
-                    </Link>)
-                })}
+                        <li className= 'list-inline-item p-2' key={i}>
+                            <Link to={`/tags/${kebabCase(tag.fieldValue)}`}>
+                                <MDBBadge className='p-2' pill color={cores[randomNumber]}>
+                                    {tag.fieldValue} {` `} {tag.totalCount}
+                                </MDBBadge>
+                            </Link>
+                        </li>
+                    )})}
             </ul>
         </Layout>
     )

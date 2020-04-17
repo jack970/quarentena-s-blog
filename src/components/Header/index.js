@@ -3,16 +3,12 @@ import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
+  NavbarText
 } from 'reactstrap';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 import CarouselPage from '../Carousel'
 const Headers = () => {
   const data = useStaticQuery(graphql`
@@ -33,35 +29,22 @@ const Headers = () => {
   return (
     <div>
       <Navbar color="dark" dark expand="md">
-        <NavbarBrand href="/"><strong className='white-text'>{data.site.siteMetadata.title}</strong></NavbarBrand>
+        <Link to="/"><strong className='white-text'>{data.site.siteMetadata.title}</strong></Link>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar style={{marginBlockStart: '0'}}>
             <NavItem>
-              <NavLink href="/Videos/">Vídeos</NavLink>
+              <NavLink href="/tags/noticias/">Notícias</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="/tags">Tags</NavLink>
             </NavItem>
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Áudios
-              </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem>
-                  Áudios
-                </DropdownItem>
-                <DropdownItem>
-                  Imagens
-                </DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>
-                  Reset
-                </DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
           </Nav>
-          <NavLink href='/noticias'>Simple Text</NavLink>
+          <NavbarText>
+            <a href='/sobre'>
+              Sobre
+            </a>
+          </NavbarText>
         </Collapse>
       </Navbar>
       <CarouselPage />

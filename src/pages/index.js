@@ -26,7 +26,7 @@ const IndexPage = props => {
         />
         <MDBCard className="my-5 px-5">
           <MDBCardBody>
-            <h2 className="h1-responsive font-weight-bold text-center my-5">
+            <h2 className="h1 font-weight-bold text-center my-5">
               Notícias
             </h2>
             <p className="text-center w-responsive mx-auto mb-5">

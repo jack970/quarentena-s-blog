@@ -1,6 +1,6 @@
 import React from "react"
 import formatDate from '../../utils/formatDate'
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery, Link } from 'gatsby'
 import { MDBBtn, MDBIcon } from 'mdbreact'
 const MenuFooter = () => {
 
@@ -54,7 +54,7 @@ const MenuFooter = () => {
       <ul className="list-unstyled">
           {data.site.siteMetadata.menuFooter.map((tag, i) => (
             <li key={i}>
-              <a href={tag.link}>{tag.label}</a>
+              <Link to={tag.link}>{tag.label}</Link>
             </li>
           ))}
         
@@ -74,7 +74,9 @@ const MenuFooter = () => {
     {data.site.siteMetadata.socialLinks.map((icons, i) => (
         <li className="list-inline-item" key={i}>
           <MDBBtn rounded color={icons.color} style={{borderRadius: '50%', padding: '.7rem 1rem .7rem'}}>
+            <a href={icons.link}>
               <MDBIcon size='2x' fab icon={icons.icon} />
+            </a>
           </MDBBtn>
         </li>
     ))}

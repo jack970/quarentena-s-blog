@@ -1,60 +1,66 @@
 import React from "react";
-import { MDBCarousel, MDBCarouselCaption, MDBCarouselInner, MDBCarouselItem, MDBView, MDBMask, MDBContainer } from
-"mdbreact";
+import { 
+  MDBCarousel, 
+  MDBCarouselCaption, 
+  MDBCarouselInner, 
+  MDBCarouselItem, 
+  MDBView, 
+  MDBMask, 
+  MDBContainer 
+} from "mdbreact";
+import { useStaticQuery, graphql, Link } from "gatsby";
 
 const CarouselPage = () => {
+    const data = useStaticQuery(graphql`
+    query allPosts {
+      allMarkdownRemark(limit: 3, sort: {fields: frontmatter___date, order: DESC}) {
+        edges {
+          node {
+            frontmatter {
+              thumbnail
+              author
+              date(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
+              description
+              title
+            }
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }    
+  `)
   return (
     <MDBContainer style={{margin: '0', padding: '0', maxWidth: '100%'}}>
       <MDBCarousel
       activeItem={1}
       length={3}
       showControls={true}
-      showIndicators={false}
+      showIndicators={true}
       className="z-depth-1"
     >
       <MDBCarouselInner>
-        <MDBCarouselItem itemId="1">
-          <MDBView>
-            <img
-              className="d-block w-100"
-              src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg"
-              alt="First slide"
-            />
-          <MDBMask overlay="black-light" />
-          </MDBView>
-          <MDBCarouselCaption>
-            <h3 className="h3-responsive">Light mask</h3>
-            <p>First text</p>
-          </MDBCarouselCaption>
-        </MDBCarouselItem>
-        <MDBCarouselItem itemId="2">
-          <MDBView>
-            <img
-              className="d-block w-100"
-              src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg"
-              alt="Second slide"
-            />
-          <MDBMask overlay="black-strong" />
-          </MDBView>
-          <MDBCarouselCaption>
-            <h3 className="h3-responsive">Strong mask</h3>
-            <p>Second text</p>
-          </MDBCarouselCaption>
-        </MDBCarouselItem>
-        <MDBCarouselItem itemId="3">
-          <MDBView>
-            <img
-              className="d-block w-100"
-              src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg"
-              alt="Third slide"
-            />
-          <MDBMask overlay="black-slight" />
-          </MDBView>
-          <MDBCarouselCaption>
-            <h3 className="h3-responsive">Slight Mast</h3>
-            <p>Third text</p>
-          </MDBCarouselCaption>
-        </MDBCarouselItem>
+        {data.allMarkdownRemark.edges.map(({node}, i) => {
+        return(
+          <MDBCarouselItem itemId={i + 1} key={i}>
+            <Link to={node.fields.slug}>
+              <MDBView style={{cursor: 'pointer'}}>
+                <img
+                  className="d-block w-100"
+                  src={node.frontmatter.thumbnail}
+                  alt={node.frontmatter.title}
+                />
+              <MDBMask overlay="black-light" />
+              </MDBView>
+              <MDBCarouselCaption>
+                <h3 className="h3-responsive">{node.frontmatter.title}</h3>
+                <h4 className='h4-responsive'>{node.frontmatter.description}</h4>
+                <p>{node.frontmatter.date}</p>
+              </MDBCarouselCaption>
+            </Link>
+          </MDBCarouselItem>
+        )})}
       </MDBCarouselInner>
     </MDBCarousel>
     </MDBContainer>

@@ -3,9 +3,13 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout/layout'
 import SEO from '../components/seo'
 import * as S from '../components/Post/style'
+import PaginationPost from '../components/Pagination'
 
-const BlogPost = ({ data }) => {
+const BlogPost = ({data, pageContext}) => {
+    const next = pageContext.next
+    const previous = pageContext.previous
     const post = data.markdownRemark
+
     return(
         <Layout>
             <SEO title={post.frontmatter.title} 
@@ -24,6 +28,7 @@ const BlogPost = ({ data }) => {
             <S.MainContent>
                 <div dangerouslySetInnerHTML={{__html: post.html}} />
             </S.MainContent>
+            <PaginationPost next={next} previous={previous}/>
         </Layout>
     )
 }
