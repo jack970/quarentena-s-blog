@@ -18,6 +18,6 @@ collections:
       - {label: "Descrição", name: "description", widget: "string"}
       - {label: "Data", name: "date", widget: "datetime", format: 'DD-MMMM-YYYY hh:mm:ss'}
       - {label: "Autor", name: "author", widget: "string"}
-      - {label: "Thumbnail", name: "thumbnail", widget: "image"}
+      - {label: "Thumbnail", name: "image", widget: "image"}
       - {label: "Tags", name: "tags", widget: "list", default: ['']}
       - {label: "Corpo", name: "body", widget: "markdown"}
