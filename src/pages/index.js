@@ -54,8 +54,8 @@ export default IndexPage
 export const PostListQuery = graphql`
   query PostList {
     allMarkdownRemark(limit: 4, 
-      filter: {frontmatter: {tags: {eq: "Notícias"}}},
-      sort: {order: DESC, fields: [frontmatter___date]}
+      filter: {frontmatter: {tags: {eq: "Notícias"}}}
+      sort: {order: ASC, fields: [frontmatter___date]}
       ) {
       edges {
         node {

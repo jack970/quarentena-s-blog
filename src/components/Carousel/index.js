@@ -53,13 +53,13 @@ const CarouselPage = () => {
           <MDBCarouselItem itemId={i + 1} key={i}>
             <Link to={node.fields.slug}>
               <MDBView style={{cursor: 'pointer'}}>
-                <Img
-                  className="d-block w-100"
-                  fluid={node.frontmatter.image.childImageSharp.fluid}
-                  alt={node.frontmatter.title}
+                    <Img
+                    className="d-block w-100"
+                    fluid={node.frontmatter.image.childImageSharp.fluid}
+                    alt={node.frontmatter.title}
 
-                  style={{height: '30rem'}}
-                />
+                    style={{height: '30rem'}}
+                  />
               <MDBMask overlay="black-light" />
               </MDBView>
               <MDBCarouselCaption>

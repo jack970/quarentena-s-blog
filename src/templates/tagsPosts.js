@@ -54,7 +54,7 @@ export const query = graphql`
                             }
                           }
                         description
-                        date
+                        date(locale:"pt-br" ,formatString: "DD [de] MMMM [de] YYYY")
                         tags
                         author
                     }
