@@ -17,6 +17,7 @@ const CarouselPage = () => {
       allMarkdownRemark(limit: 3, sort: {fields: frontmatter___date, order: DESC}) {
         edges {
           node {
+            excerpt(pruneLength: 50)
             frontmatter {
               image {
                 childImageSharp {
@@ -27,7 +28,6 @@ const CarouselPage = () => {
               }
               author
               date(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
-              description
               title
             }
             fields {
@@ -64,7 +64,7 @@ const CarouselPage = () => {
               </MDBView>
               <MDBCarouselCaption>
                 <h3 className="h3-responsive">{node.frontmatter.title}</h3>
-                <h4 className='h4-responsive'>{node.frontmatter.description}</h4>
+                <h4 className='h4-responsive'>{node.excerpt}</h4>
                 <p>{node.frontmatter.date}</p>
               </MDBCarouselCaption>
             </Link>

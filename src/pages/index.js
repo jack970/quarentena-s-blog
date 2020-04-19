@@ -36,7 +36,7 @@ const IndexPage = ({data}) => {
               <PostItem key = {i}
                 image={node.frontmatter.image.childImageSharp.fluid}
                 title={node.frontmatter.title}
-                description={node.frontmatter.description}
+                description={node.excerpt}
                 date={node.frontmatter.date}
                 author={node.frontmatter.author}
                 link={node.fields.slug}  
@@ -55,10 +55,11 @@ export const PostListQuery = graphql`
   query PostList {
     allMarkdownRemark(limit: 4, 
       filter: {frontmatter: {tags: {eq: "Notícias"}}}
-      sort: {order: ASC, fields: [frontmatter___date]}
+      sort: {order: DESC, fields: [frontmatter___date]}
       ) {
       edges {
         node {
+          excerpt
           frontmatter {
             image {
               childImageSharp {
@@ -69,7 +70,6 @@ export const PostListQuery = graphql`
             }
             author
             date(locale:"pt-br" ,formatString: "DD [de] MMMM [de] YYYY")
-            description
             title
           }
           fields {
