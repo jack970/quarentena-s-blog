@@ -73,16 +73,19 @@ const MenuFooter = () => {
 <ul className="list-unstyled list-inline text-center">
     {data.site.siteMetadata.socialLinks.map((icons, i) => (
         <li className="list-inline-item" key={i}>
-          <a href={icons.link}>
-            <MDBBtn rounded color={icons.color} style={{borderRadius: '50%', padding: '.7rem 1rem .7rem'}}>
+          <Link to={icons.link}>
+            <MDBBtn rounded color={icons.color} style={{borderRadius: '50%',
+            padding: '.375rem .75rem',
+          
+          }}>
                 <MDBIcon size='2x' fab icon={icons.icon} />
             </MDBBtn>
-          </a>
+          </Link>
         </li>
     ))}
 </ul>
 <div className="footer-copyright text-center py-3">{formatDate(Date())} <br />
-    Desenvolvedor: {data.site.siteMetadata.author} {` | `} Desenvolvido com <a href="https://www.gatsbyjs.org/"> Gatsby</a>
+    Desenvolvedor: {data.site.siteMetadata.author} {` | `} Desenvolvido com <Link to="https://www.gatsbyjs.org/"> Gatsby</Link>
 </div>
 
 

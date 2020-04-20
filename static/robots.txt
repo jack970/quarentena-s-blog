@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /admin
+
+Sitemap: https://blogdaquarentena.netlify.app/sitemap.xml

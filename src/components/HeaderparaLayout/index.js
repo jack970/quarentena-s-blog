@@ -5,14 +5,13 @@ import {
   NavbarToggler,
   Nav,
   NavItem,
-  NavLink,
   NavbarText
 } from 'reactstrap';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 
 const Headers = () => {
   const data = useStaticQuery(graphql`
-    query QueryTitle {
+    query siteTitleQuery {
       site {
         siteMetadata {
           title
@@ -26,24 +25,29 @@ const Headers = () => {
 
   const toggle = () => setIsOpen(!isOpen);
 
+  const styleLink = {
+    color: '#fff',
+    marginLeft: '1rem'
+  }
+
   return (
     <div>
       <Navbar color="dark" dark expand="md">
         <Link to="/"><strong className='white-text'>{data.site.siteMetadata.title}</strong></Link>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar style={{marginBlockStart: '0'}}>
+          <Nav className="mr-auto" navbar style={{marginBlockStart: '0', marginLeft: '1rem'}}>
             <NavItem>
-              <NavLink href="/tags/noticias/">Notícias</NavLink>
+                <Link style={ styleLink } to="/tags/noticias/">Notícias</Link>
             </NavItem>
             <NavItem>
-              <NavLink href="/tags">Categorias</NavLink>
+                <Link style={ styleLink } to="/tags">Categorias</Link>
             </NavItem>
           </Nav>
           <NavbarText>
-            <a href='/sobre'>
+            <Link to='/sobre'>
               Sobre
-            </a>
+            </Link>
           </NavbarText>
         </Collapse>
       </Navbar>

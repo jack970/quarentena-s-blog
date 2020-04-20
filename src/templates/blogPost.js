@@ -26,7 +26,7 @@ const BlogPost = ({data, pageContext}) => {
                 </S.PostDescription>
             </S.PostHeader>
             <S.MainContent>
-                <div dangerouslySetInnerHTML={{__html: post.html}} />
+                <div dangerouslySetInnerHTML={{__html: post.html}}></div>
             </S.MainContent>
             <PaginationPost next={next} previous={previous}/>
         </Layout>

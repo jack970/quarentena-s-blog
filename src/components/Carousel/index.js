@@ -63,7 +63,7 @@ const CarouselPage = () => {
               <MDBMask overlay="black-light" />
               </MDBView>
               <MDBCarouselCaption>
-                <h3 className="h3-responsive">{node.frontmatter.title}</h3>
+                <h3 className="h4">{node.frontmatter.title}</h3>
                 <h4 className='h4-responsive'>{node.excerpt}</h4>
                 <p>{node.frontmatter.date}</p>
               </MDBCarouselCaption>

@@ -13,7 +13,7 @@ const IndexPage = ({data}) => {
   return(
     <section style={{backgroundColor: '#ededed'}}>
     <Headers />
-    <SEO title="Home" />
+    <SEO title="Início" />
     <main
         style={{
           margin: `0 auto`,
