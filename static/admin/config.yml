@@ -1,5 +1,6 @@
 backend:
   name: git-gateway
+  display_url: https://blogdaquarentena.netlify.app/
   logo_url: https://blogdaquarentena.netlify.app/icons/icon-48x48.png
   site_url: blogdaquarentena.netlify.app
   
