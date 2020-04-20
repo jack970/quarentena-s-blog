@@ -1,7 +1,8 @@
 backend:
-  name: github
+  name: git-gateway
   repo: jack970/blog-site-with-tags
   branch: master
+  logo_url: https://blogdaquarentena.netlify.app/icons/icon-48x48.png
   
 media_folder: static/assets/img
 public_folder: /assets/img
