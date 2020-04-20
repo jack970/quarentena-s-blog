@@ -12,7 +12,7 @@ tags:
 
 Lorem Ipsulum DoloreLorem Ipsulum DoloreLorem Ipsulum DoloreLorem Ipsulum DoloreLorem Ipsulum DoloreLorem Ipsulum DoloreLorem Ipsulum DoloreLorem Ipsulum DoloreLorem Ipsulum DoloreLorem Ipsulum DoloreLorem Ipsulum DoloreLorem Ipsulum DoloreLorem Ipsulum DoloreLorem Ipsulum Dolore.
 
-![](/assets/img/maxresdefault.jpg)
+!["fodase"](/assets/img/maxresdefault.jpg)
 
 Lorem Ipsulum DoloreLorem Ipsulum DoloreLorem Ipsulum DoloreLorem Ipsulum DoloreLorem Ipsulum DoloreLorem Ipsulum DoloreLorem Ipsulum DoloreLorem Ipsulum DoloreLorem Ipsulum DoloreLorem Ipsulum Dolore
 
