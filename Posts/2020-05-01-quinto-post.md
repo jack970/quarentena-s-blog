@@ -9,7 +9,7 @@ tags:
 ---
 ## Add tags to your `markdown` files
 
-You add tags by defining them in the `frontmatter `of your Markdown file. The `frontmatter` is the area at the top surrounded by dashes that includes post data like the title and date.
+You add tags by defining them in the `frontmatter` of your Markdown file. The `frontmatter` is the area at the top surrounded by dashes that includes post data like the title and date.
 
 ```markdown
 ---
@@ -28,4 +28,4 @@ tags: ["animals", "Chicago", "zoos"]
 I went to the zoo today. It was terrible.
 ```
 
-If `gatsby develop `is running, restart it so Gatsby can pick up the new fields.
+If `gatsby develop` is running, restart it so Gatsby can pick up the new fields.
